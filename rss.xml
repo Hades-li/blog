@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的技术要点]]></description><link>https://hades-li.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sat, 08 Dec 2018 10:45:43 GMT</lastBuildDate><item><title><![CDATA[个人简历]]></title><description><![CDATA[个人信息 李佳(英文：ignis)/男/1983 大专/三江学院计算机系 工作年限：10年以上(软件开发年限4年以上) 技术博客： http://hades-li.github.io/blog 邮箱：vip_aquarius@163.com 手机号: 国内：1891338689…]]></description><link>https://hades-li.github.io/blog/cv/</link><guid isPermaLink="false">https://hades-li.github.io/blog/cv/</guid><pubDate>Sat, 08 Dec 2018 22:12:03 GMT</pubDate><content:encoded>&lt;h1&gt;个人信息&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的技术要点]]></description><link>https://hades-li.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sun, 16 Dec 2018 05:49:36 GMT</lastBuildDate><item><title><![CDATA[个人简历]]></title><description><![CDATA[个人信息 李佳(英文：ignis)/男/1983 大专/三江学院计算机系 工作年限：10年以上(软件开发年限5年以上) 技术博客： http://hades-li.github.io/blog 邮箱：vip_aquarius@163.com 期望职位：Web…]]></description><link>https://hades-li.github.io/blog/cv/</link><guid isPermaLink="false">https://hades-li.github.io/blog/cv/</guid><pubDate>Sat, 08 Dec 2018 22:12:03 GMT</pubDate><content:encoded>&lt;h1&gt;个人信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;李佳(英文：ignis)/男/1983&lt;/li&gt;
 &lt;li&gt;大专/三江学院计算机系&lt;/li&gt;
-&lt;li&gt;工作年限：10年以上(软件开发年限4年以上)&lt;/li&gt;
+&lt;li&gt;工作年限：10年以上(软件开发年限5年以上)&lt;/li&gt;
 &lt;li&gt;技术博客：&lt;a href=&quot;http://hades-li.github.io/blog&quot;&gt;http://hades-li.github.io/blog&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;邮箱：vip_aquarius@163.com&lt;/li&gt;
-&lt;li&gt;手机号: 国内：18913386899（只收短信），菲律宾: 0063-9771081879&lt;/li&gt;
 &lt;li&gt;期望职位：Web前端高级程序员，前端架构师，基于flutter的ios/android跨平台应用开发&lt;/li&gt;
 &lt;li&gt;期望薪资：面议&lt;/li&gt;
 &lt;/ul&gt;
@@ -27,13 +26,14 @@
 并处理es6-es5的转换&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;江苏孩子王实业有限公司 （2017.04 － 2018.01）&lt;/h2&gt;
+&lt;h2 id=&apos;hzw&apos;&gt; 江苏孩子王实业有限公司 （2017.04 － 2018.01）&lt;/h2&gt;
 &lt;h3&gt;成长加移动端项目&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;项目为孩子王旗下成长加APP的web端。兼容各手机浏览器，微信端嵌入等。
 项目基于Vue框架开发，后期为解决seo，页面加载速度等问题，项目采用nuxt服务端渲染框架进行重构。
 项目地址:&lt;a href=&quot;http://m.czj100.com&quot;&gt;m.czj100.com&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;hr&gt;
 &lt;h2&gt;中国惠普有限公司 （2016.09 － 2017.03）&lt;/h2&gt;
 &lt;h3&gt;华为VMALL商城店铺装修子系统&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -42,7 +42,7 @@ VMALL活动页，频道页等页面中的组件UI界面，组件渲染，接口�
 技术栈：jquery,requireJs,scss&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;苏宁云商 （2014.06 － 2016.07）&lt;/h2&gt;
+&lt;h2 id=&apos;snys&apos;&gt;苏宁云商 （2014.06 － 2016.07）&lt;/h2&gt;
 &lt;h3&gt;豆芽办公集成项目&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;移动办公类项目。将原PC端的工作日志填写，请假申请，差旅申请报销，流程审批等办公业务移值进移动端。采用H5形式整合进公司内部通讯app豆芽中。&lt;br&gt;
@@ -72,22 +72,10 @@ git地址：&lt;a href=&quot;https://github.com/Hades-li/flutter_password&quot;&
 &lt;h1&gt;技能清单&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;Web开发：javascript/scss/html/&lt;/li&gt;
-&lt;li&gt;前端框架：Bootstrap/Vue/react&lt;/li&gt;
+&lt;li&gt;前端框架：Bootstrap/Vue/react/&lt;/li&gt;
 &lt;li&gt;前端工具：Webpack/Gulp&lt;/li&gt;
 &lt;li&gt;app开发: swift/dart/flutter/java&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://hades-li.github.io/blog/hello-world/</link><guid isPermaLink="false">https://hades-li.github.io/blog/hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
-&lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
-&lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
-&lt;a href=&quot;http://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A salted duck egg is a Chinese preserved food product made by soaking duck
-eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-charcoal paste. The eggs may also be sold with the salted paste removed,
-wrapped in plastic, and vacuum packed. From the salt curing process, the
-salted duck eggs have a briny aroma, a gelatin-like egg white and a
-firm-textured, round yolk that is bright orange-red in color.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[flutter动画实用教程]]></title><description><![CDATA[flutter的动画]]></description><link>https://hades-li.github.io/blog/hello-world/</link><guid isPermaLink="false">https://hades-li.github.io/blog/hello-world/</guid><pubDate>Wed, 09 Dec 2015 22:12:03 GMT</pubDate><content:encoded>&lt;h1&gt;flutter的动画&lt;/h1&gt;
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
