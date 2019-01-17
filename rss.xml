@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的技术要点]]></description><link>https://hades-li.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sun, 16 Dec 2018 05:49:36 GMT</lastBuildDate><item><title><![CDATA[个人简历]]></title><description><![CDATA[个人信息 李佳(英文：ignis)/男/1983 大专/三江学院计算机系 工作年限：10年以上(软件开发年限5年以上) 技术博客： http://hades-li.github.io/blog 邮箱：vip_aquarius@163.com 期望职位：Web…]]></description><link>https://hades-li.github.io/blog/cv/</link><guid isPermaLink="false">https://hades-li.github.io/blog/cv/</guid><pubDate>Sat, 08 Dec 2018 22:12:03 GMT</pubDate><content:encoded>&lt;h1&gt;个人信息&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的技术要点]]></description><link>https://hades-li.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Thu, 17 Jan 2019 04:16:41 GMT</lastBuildDate><item><title><![CDATA[一个前端学习IOS开发采坑记-swift的闭包]]></title><description><![CDATA[前言 闭包在swift开发中非常常见。但它却和js中所谓的闭包并不相同。 它并不像javascript中的闭包 js中的闭包通常是用于将函数中的私有变量能够供函数外调用的函数，通常称作为闭包。在日常开发中，可以用于创建对象实例等。 但swift中的闭包和js…]]></description><link>https://hades-li.github.io/blog/swift-closure/</link><guid isPermaLink="false">https://hades-li.github.io/blog/swift-closure/</guid><pubDate>Wed, 16 Jan 2019 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;闭包在swift开发中非常常见。但它却和js中所谓的闭包并不相同。&lt;/p&gt;
+&lt;h2&gt;它并不像javascript中的闭包&lt;/h2&gt;
+&lt;p&gt;js中的闭包通常是用于将函数中的私有变量能够供函数外调用的函数，通常称作为闭包。在日常开发中，可以用于创建对象实例等。&lt;/p&gt;
+&lt;p&gt;但swift中的闭包和js中的闭包几乎没有关系，它其实是从oc中的block衍生过来的产物，只是换了个名字叫闭包（closure）。首先来看一个典型的闭包。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;outText(callback: { (text: String) in
+    let a = text
+})&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;作为一个前端在看到这个代码后，肯定会说，这特么不就是一个回调函数嘛。确实，这就是一个回调函数，相当于如下的js代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;outText((text) =&amp;gt; {
+    const a = text
+})&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;两个函数功能完全一致，而函数中的回调函数，在swift中就被称为闭包。在swift中，闭包的主要工作之一就是用于作为回调函数来使用。&lt;/p&gt;
+&lt;p&gt;除了作为回调函数外，另一个常用的功能就是用于实例化对象,代码如下&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;let objA = {
+    let obj = View()
+    return obj
+}()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;对，你没有看错，这特么就是js中的利用匿名函数创建对象，而那个匿名函数在swift中，就被称为是闭包的调用。相同的js如下表示：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const objA = function() {
+    let obj = View()
+    return obj
+}()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;swift经常会通过这种方式来定义个控件。&lt;/p&gt;
+&lt;h2&gt;闭包有多种简写的代码格式&lt;/h2&gt;
+&lt;p&gt;对于前端开发者来说，swift的闭包在功能使用上并没有太多不同认知，你只需要知道它其实就是一个函数，用于回调和匿名函数即可。然而，swift的闭包变态的是它具有多种不同的格式写法，或者称作为多种简写。以下是一个完整写法和一个最简写法。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 完整写法
+funcA(callback: { (a:Int,b:Int) -&amp;gt; Int
+    return a + b
+})
+// 最简写
+funcA{$0 + $1}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;是不是有种三观被毁的感觉。这特么还是同一个东西吗？作为一个前端，我一开始看见这种简写形态是懵逼的。难道多写几个代码会死吗？&lt;/p&gt;
+&lt;p&gt;不过，当你代码看多了的时候，你会发现很多别人的代码或者是一些开源库，在闭包的使用上几乎都是能用简写，绝对不用完整版。所以你只能习惯就好。其实我个人觉得完整版在阅读的时候更加清晰，参数使用更加明确。&lt;/p&gt;
+&lt;p&gt;当然，完整版和最简写之间是有一连串的省略。以下就是各阶段省略的代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 完整写法
+funcA(callback: { (a:Int,b:Int) -&amp;gt; Int in
+    return a + b
+})
+// 省略闭包中参数的类型
+funcA(callback: { (a,b) -&amp;gt; Int in
+    return a + b
+})
+// 省略闭包中参数的挂号
+funcA(callback: { a,b -&amp;gt; Int in
+    return a + b
+})
+// 省略返回类型
+funcA(callback: { a,b in
+    return a + b
+})
+// 省略return 
+funcA(callback:{a,b in 
+    a+b
+})
+// 省略闭包中的参数
+funcA(callback:{
+    $0+$1
+})
+// 省略函数中的参数名
+funcA({$0 + $1})
+// 再把挂号去掉的最简写
+funcA{$0 + $1}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以上的简写，你可以根据需求使用任何一个阶段的简写。通常，也是在需求允许的情况做到最简单写法。&lt;/p&gt;
+&lt;p&gt;在以上这些简写中的最后一步简写，涉及到一个闭包的新特性，叫做尾随闭包。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 完整写法
+funcB(x1: Int, x2: Int, callback:{ (a: Int,b: Int) -&amp;gt; Int in
+    return a + b
+})
+
+// 省略函数末尾的回调函数的参数，也就是闭包的名称
+funcB(x1: Int, x2: Int){ (a: Int,b: Int) in
+    return a + b
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以上列子，并没有简写至最简写，目的是告诉你什么是尾随闭包。用前端小伙伴便于理解的话来说，就是如果这个回调函数被放在了函数参数的最后一个，那么我们就可以省略掉参数名称，并且把回调函数的大挂号放到函数外面来表示。&lt;/p&gt;
+&lt;p&gt;就是由于这样的改变，可能会导致一个前端转过来的同学在阅读代码时看的会有点懵。但只要你知道它的完整版就很容易理解了。&lt;/p&gt;
+&lt;p&gt;另外，闭包还有一个重要知识点，逃逸闭包。废话少说，看代码&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 定义一个带有闭包的函数
+func a(callback: @escape (a:Int) -&amp;gt; Int) {
+    // todo
+    ...
+    http.get(xxx).then{ data in
+        callback(data)
+    }
+    ...
+}
+
+// 调用函数
+a(callback: { a -&amp;gt; Int in
+    return a + 1
+}) &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;和普通的闭包相比，仅仅在定义闭包的时候多了一个escape。它表示的意义是，当前这个闭包会在本身函数执行完毕后才执行。&lt;code class=&quot;language-text&quot;&gt;http.get()&lt;/code&gt;是表示这是一个请求函数或者是一个延时操作。只有当这个操作执行完成后才会执行闭包。而这样的闭包我们就必须加上escape来修饰。否则编译报错。&lt;/p&gt;
+&lt;p&gt;用前端的理解就是，这个回调函数是由一个异步请求来触发的，我们就必须加上escape。这个特性在js里当然也是有的。只不过,js根本没有把回调分为异步回调和普通回调。无论哪种回调，写法都一样。&lt;/p&gt;
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;ios开发，闭包随处可见。首先，不要被它的各种简写搞懵。其次，把他们当成回调函数，或者匿名函数理解就可以。如果是异步回调，就加上escape修饰。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[一个前端学习IOS开发采坑记-1]]></title><description><![CDATA[前言 这是用来记录我一个前端如何学习ios开发的经历，更多的是从一个前端的角度来理解ios开发。和一些框架思想的转变。 语言的选择 大多数人都很清楚，oc是ios开发的第一大语言。即便swift已经到了第4版。在目前的项目中，
+依然是oc…]]></description><link>https://hades-li.github.io/blog/hello-world/</link><guid isPermaLink="false">https://hades-li.github.io/blog/hello-world/</guid><pubDate>Fri, 28 Dec 2018 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;这是用来记录我一个前端如何学习ios开发的经历，更多的是从一个前端的角度来理解ios开发。和一些框架思想的转变。&lt;/p&gt;
+&lt;h2&gt;语言的选择&lt;/h2&gt;
+&lt;p&gt;大多数人都很清楚，oc是ios开发的第一大语言。即便swift已经到了第4版。在目前的项目中，
+依然是oc为主力语言。其优点是非常完善的第三方框架库。
+网上能找到各种各样的问题解决方案的样例都是基于oc的。这对于开发一个项目帮助非常大。
+但如果那你用了swift，你会发现很多问题，你不得不去看人家是用oc怎么解决的，然后自己仿造用swift来实现。
+自然开发效率就下降了。&lt;/p&gt;
+&lt;p&gt;但是作为一个前端开发者，当你第一眼看到oc的语法时，你一定是懵逼的。当然，就连从事多年oc开发的
+人来说，也是觉得oc的语法很变态。这也就是苹果为什么会创建swift语言的原因了。
+作为前端来说，选择swift来作为开发ios语言，其学习难度要比oc小很多。因为它和js有很多相似的地方。
+比如实例化一个对象：&lt;/p&gt;
+&lt;p&gt;oc的：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;A *a = [A init]
+NSString *str = [NSString stringWithFormat:@&amp;quot;字符串%d&amp;quot;,a]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;swift的:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var a = A()
+var str:String = &amp;quot;hello world&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果你是一个前端开发者，当你第一次看见oc的语法，估计可能会认为那在实例化一个数组。oc的特色就是各种”中挂号”。
+很明显，swift语法更接近js。&lt;/p&gt;
+&lt;p&gt;需要注意的是，swift是一门强类型的语言，而js是弱类型的。这是两者最大的区别。
+不过，如果你是一个精通ts的前端，那么恭喜你，你掌握swift的时间又可以缩短了。
+因为，两者不但都是强类型的语言，并且你会发现，两者在部分语法结构上几乎雷同。&lt;/p&gt;
+&lt;p&gt;因此，我从能够快速上手的角度来判断。作为一个前端来说，选择swift作为基础语言是利大于弊的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;目前，swift语言已经更新到第4版，已经不像前3版，每一次更新都能带来满屏红叉的效果。api基本已经稳定了。&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[个人简历]]></title><description><![CDATA[个人信息 李佳(英文：ignis)/男/1983 大专/三江学院计算机系 工作年限：10年以上(软件开发年限5年以上) 技术博客： http://hades-li.github.io/blog 邮箱：vip_aquarius@163.com 期望职位：Web…]]></description><link>https://hades-li.github.io/blog/cv/</link><guid isPermaLink="false">https://hades-li.github.io/blog/cv/</guid><pubDate>Sat, 08 Dec 2018 22:12:03 GMT</pubDate><content:encoded>&lt;h1&gt;个人信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;李佳(英文：ignis)/男/1983&lt;/li&gt;
 &lt;li&gt;大专/三江学院计算机系&lt;/li&gt;
@@ -12,62 +133,63 @@
 &lt;h1&gt;工作经历&lt;/h1&gt;
 &lt;h2&gt;海外某公司 （2018.02 － 至今）&lt;/h2&gt;
 &lt;h3&gt;活动页类型项目&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;pc端和移动端以开发静态页为主，没什么技术好说的。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;pc端和移动端以开发静态页为主，没什么技术好说的。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;走势图开发&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;涉及前端技术包括vue,element,mint-ui,two.js。手机端展示数据走势图表。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;涉及前端技术包括vue,element,mint-ui,two.js。手机端展示数据走势图表。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;推广页项目开发&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;开发一个公司的对外推广页面，并要支持国际化,支持从pc到移动端的响应式展示。
-涉及技术包括bootstrap用于响应式框架搭建，i18next框架处理国际化，webpack用于打包输入出静态资源，
-并处理es6-es5的转换&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;开发一个公司的对外推广页面，并要支持国际化,支持从pc到移动端的响应式展示。&lt;/li&gt;
+&lt;li&gt;涉及技术包括bootstrap用于响应式框架搭建，i18next框架处理国际化，webpack用于打包输入出静态资源，&lt;/li&gt;
+&lt;li&gt;并处理es6-es5的转换&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ga518.com&quot;&gt;项目预览&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&apos;hzw&apos;&gt; 江苏孩子王实业有限公司 （2017.04 － 2018.01）&lt;/h2&gt;
+&lt;h2 id=&apos;hzw&apos;- 江苏孩子王实业有限公司 （2017.04 － 2018.01）&lt;/h2&gt;
 &lt;h3&gt;成长加移动端项目&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;项目为孩子王旗下成长加APP的web端。兼容各手机浏览器，微信端嵌入等。
-项目基于Vue框架开发，后期为解决seo，页面加载速度等问题，项目采用nuxt服务端渲染框架进行重构。
-项目地址:&lt;a href=&quot;http://m.czj100.com&quot;&gt;m.czj100.com&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;项目为孩子王旗下成长加APP的web端。兼容各手机浏览器，微信端嵌入等。&lt;/li&gt;
+&lt;li&gt;项目基于Vue框架开发，后期为解决seo，页面加载速度等问题，项目采用nuxt服务端渲染框架进行重构。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://m.czj100.com&quot;&gt;项目预览&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;中国惠普有限公司 （2016.09 － 2017.03）&lt;/h2&gt;
 &lt;h3&gt;华为VMALL商城店铺装修子系统&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;负责后台管理UI界面、页面渲染开发、接口调用。
-VMALL活动页，频道页等页面中的组件UI界面，组件渲染，接口调用。
-技术栈：jquery,requireJs,scss&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;负责后台管理UI界面、页面渲染开发、接口调用。&lt;/li&gt;
+&lt;li&gt;VMALL活动页，频道页等页面中的组件UI界面，组件渲染，接口调用。&lt;/li&gt;
+&lt;li&gt;技术栈：jquery,requireJs,scss&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&apos;snys&apos;&gt;苏宁云商 （2014.06 － 2016.07）&lt;/h2&gt;
 &lt;h3&gt;豆芽办公集成项目&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;移动办公类项目。将原PC端的工作日志填写，请假申请，差旅申请报销，流程审批等办公业务移值进移动端。采用H5形式整合进公司内部通讯app豆芽中。&lt;br&gt;
-技术栈：zepto,vue,layermobile插件,echart3.0等 &lt;br&gt;
-zepto作为基本框架。vue开发web app的页面；layer插件用于处理弹窗，echart处理图表等。&lt;br&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;移动办公类项目。将原PC端的工作日志填写，请假申请，差旅申请报销，流程审批等办公业务移值进移动端。采用H5形式整合进公司内部通讯app豆芽中。&lt;/li&gt;
+&lt;li&gt;技术栈：zepto,vue,layermobile插件,echart3.0等&lt;/li&gt;
+&lt;li&gt;zepto作为基本框架。vue开发web app的页面；layer插件用于处理弹窗，echart处理图表等。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;员工管理平台&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;PC端项目。页面组件化布局。用户可将自己需要的功能组件拖入页面中自由排版展现。包括，通知公告，图表数据展示等。&lt;br&gt;
-技术栈涉及：jquery,jquery ui,backbone。图表采用echart2.0。&lt;br&gt;
-采用backbone构建组件实例。动态渲染，数据采用异步请求获取。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;PC端项目。页面组件化布局。用户可将自己需要的功能组件拖入页面中自由排版展现。包括，通知公告，图表数据展示等。&lt;/li&gt;
+&lt;li&gt;技术栈涉及：jquery,jquery ui,backbone。图表采用echart2.0。&lt;/li&gt;
+&lt;li&gt;采用backbone构建组件实例。动态渲染，数据采用异步请求获取。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;苏宁直播&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;视频点播网站，用于集团员工远程查看视频学习资料。 &lt;br&gt;
-项目采用bootstrap框架，实现响应式布局，一套代码兼容PC,平板,手机端。&lt;br&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;视频点播网站，用于集团员工远程查看视频学习资料。&lt;/li&gt;
+&lt;li&gt;项目采用bootstrap框架，实现响应式布局，一套代码兼容PC,平板,手机端。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;开源项目&lt;/h2&gt;
 &lt;h3&gt;密码本&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;基于谷歌最新的flutter跨平台框架打造，一款简单的用于记录账号密码的移动端app。包含ios和android。&lt;br&gt;
-flutter是基于dart语言，实现一套代码，同时开发出ios/android系统的原生应用，性能秒杀其他跨平台方案。&lt;br&gt;
-git地址：&lt;a href=&quot;https://github.com/Hades-li/flutter_password&quot;&gt;https://github.com/Hades-li/flutter_password&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;基于谷歌最新的flutter跨平台框架打造，一款简单的用于记录账号密码的移动端app。包含ios和android。&lt;/li&gt;
+&lt;li&gt;flutter是基于dart语言，实现一套代码，同时开发出ios/android系统的原生应用，性能秒杀其他跨平台方案。&lt;/li&gt;
+&lt;li&gt;git地址：&lt;a href=&quot;https://github.com/Hades-li/flutter_password&quot;&gt;https://github.com/Hades-li/flutter_password&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1&gt;技能清单&lt;/h1&gt;
 &lt;ul&gt;
@@ -75,41 +197,4 @@ git地址：&lt;a href=&quot;https://github.com/Hades-li/flutter_password&quot;&
 &lt;li&gt;前端框架：Bootstrap/Vue/react/&lt;/li&gt;
 &lt;li&gt;前端工具：Webpack/Gulp&lt;/li&gt;
 &lt;li&gt;app开发: swift/dart/flutter/java&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[flutter动画实用教程]]></title><description><![CDATA[flutter的动画]]></description><link>https://hades-li.github.io/blog/hello-world/</link><guid isPermaLink="false">https://hades-li.github.io/blog/hello-world/</guid><pubDate>Wed, 09 Dec 2015 22:12:03 GMT</pubDate><content:encoded>&lt;h1&gt;flutter的动画&lt;/h1&gt;
-&lt;p&gt;
-  &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/static/8058f3f26913fea3b6a89a73344fe94a/3f5a1/salty_egg.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-  
-  &lt;span
-    class=&quot;gatsby-resp-image-wrapper&quot;
-    style=&quot;position: relative; display: block;  max-width: 590px; margin-left: auto; margin-right: auto;&quot;
-  &gt;
-    &lt;span
-      class=&quot;gatsby-resp-image-background-image&quot;
-      style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEEBf/aAAwDAQACEAMQAAABgik0dXC//8QAGRABAAMBAQAAAAAAAAAAAAAAAQACEhEy/9oACAEBAAEFAkqW2DlnRj73yf/EABcRAQADAAAAAAAAAAAAAAAAAAAREkH/2gAIAQMBAT8B1WX/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQL/2gAIAQIBAT8Bi6f/xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIRISIxMv/aAAgBAQAGPwK9GNocyS8hCj//xAAcEAADAQACAwAAAAAAAAAAAAABESEAMUGBobH/2gAIAQEAAT8hsTTH2wx5gg2ZgM8d5JIfmMRAIe//2gAMAwEAAgADAAAAEMgv/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARIf/aAAgBAwEBPxARwyusv//EABgRAAIDAAAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EFoktI//xAAcEAEBAAIDAQEAAAAAAAAAAAABEQAxIWGBQeH/2gAIAQEAAT8QRswtDR5g4a7R5C/RHFM3BKk6zThoVp3lEYcnjGIYES7/ACZ//9k=&apos;); background-size: cover; display: block;&quot;
-    &gt;
-      &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
-        alt=&quot;Chinese Salty Egg&quot;
-        title=&quot;&quot;
-        src=&quot;/blog/static/8058f3f26913fea3b6a89a73344fe94a/f8fb9/salty_egg.jpg&quot;
-        srcset=&quot;/blog/static/8058f3f26913fea3b6a89a73344fe94a/e8976/salty_egg.jpg 148w,
-/blog/static/8058f3f26913fea3b6a89a73344fe94a/63df2/salty_egg.jpg 295w,
-/blog/static/8058f3f26913fea3b6a89a73344fe94a/f8fb9/salty_egg.jpg 590w,
-/blog/static/8058f3f26913fea3b6a89a73344fe94a/85e3d/salty_egg.jpg 885w,
-/blog/static/8058f3f26913fea3b6a89a73344fe94a/d1924/salty_egg.jpg 1180w,
-/blog/static/8058f3f26913fea3b6a89a73344fe94a/9452e/salty_egg.jpg 1770w,
-/blog/static/8058f3f26913fea3b6a89a73344fe94a/3f5a1/salty_egg.jpg 2048w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
-      /&gt;
-    &lt;/span&gt;
-  &lt;/span&gt;
-  
-  &lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;/ul&gt;</content:encoded></item></channel></rss>
