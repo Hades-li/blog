@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: '我的博客',
-    author: 'XXX',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    author: 'ignis',
+    description: '用于记录一些开发过程中的技术要点',
+    siteUrl: 'https://hades-li.github.io/blog',
   },
   pathPrefix: '/blog',
   plugins: [
