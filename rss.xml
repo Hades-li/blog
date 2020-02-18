@@ -1,18 +1,97 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的小坑和大坑]]></description><link>https://hades-li.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Feb 2020 02:24:22 GMT</lastBuildDate><item><title><![CDATA[浅谈typescript用于vue开发的优点和坑]]></title><description><![CDATA[typescript的两个核心,面向对象和强类型 typescript目前主要应用的方向
-web：angular,react,vue?
-游戏：白鹭引擎,LayaAir引擎 typescript用于vue开发是否合适 有点鸡肋，但… 原因1：由于vue本身用自己的一套格式为.vue…]]></description><link>https://hades-li.github.io/blog/typescript-vue/</link><guid isPermaLink="false">https://hades-li.github.io/blog/typescript-vue/</guid><pubDate>Sat, 26 Oct 2019 23:03:03 GMT</pubDate><content:encoded>&lt;h2&gt;typescript的两个核心,面向对象和强类型&lt;/h2&gt;
-&lt;p&gt;typescript目前主要应用的方向
-web：angular,react,vue?
-游戏：白鹭引擎,LayaAir引擎&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的小坑和大坑]]></description><link>https://hades-li.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Feb 2020 09:00:11 GMT</lastBuildDate><item><title><![CDATA[浅谈typescript用于vue开发的优点和坑]]></title><description><![CDATA[typescript的两个核心,面向对象和强类型 typescript目前主要应用的方向 web：angular,react,vue? 游戏：白鹭引擎,LayaAir引擎 typescript用于vue开发是否合适 有点鸡肋，但可以使项目变得更健壮，也可以使你变得更强。 原因…]]></description><link>https://hades-li.github.io/blog/typescript-vue/</link><guid isPermaLink="false">https://hades-li.github.io/blog/typescript-vue/</guid><pubDate>Sat, 26 Oct 2019 23:03:03 GMT</pubDate><content:encoded>&lt;h2&gt;typescript的两个核心,面向对象和强类型&lt;/h2&gt;
+&lt;p&gt;typescript目前主要应用的方向&lt;/p&gt;
+&lt;p&gt;web：angular,react,vue?&lt;/p&gt;
+&lt;p&gt;游戏：白鹭引擎,LayaAir引擎&lt;/p&gt;
 &lt;h2&gt;typescript用于vue开发是否合适&lt;/h2&gt;
-&lt;p&gt;有点鸡肋，但…&lt;/p&gt;
-&lt;p&gt;原因1：由于vue本身用自己的一套格式为.vue文件做了一个面向对象的封装，因此，typescript的面向对象特性并没有发挥其优势，仅仅是改变了一个形态。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;原因2：由于强类型的引入，代码量上升了。同时在引用一些“不靠谱”的第三方的js库时，你还得为它们补充申明文件。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;有点鸡肋，但可以使项目变得更健壮，也可以使你变得更强。&lt;/p&gt;
+&lt;h3&gt;原因1：由于vue本身用自己的一套格式为.vue文件做了一个面向对象的封装，因此，typescript的面向对象特性并没有发挥其优势，仅仅是改变了一个形态。&lt;/h3&gt;
+&lt;p&gt;typescript代码&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import { Component, Vue } from &amp;#39;vue-property-decorator&amp;#39;
+
+@Component({
+  name: &amp;#39;Page404&amp;#39;
+})
+export default class home extends Vue {
+  private message = &amp;#39;home&amp;#39;
+  get name() {
+    return this.$route.query.name 
+  }
+  created() {
+
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;js代码&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;export default {
+  name: &amp;#39;Page404&amp;#39;,
+  data: {
+    return {
+        message = &amp;#39;home&amp;#39;
+    }
+  },
+  computed: {
+    name() {
+        return this.$route.query.name 
+    }
+  },
+  created() {
+      
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以上的一段简单代码，可以看出，js代码中data对象和computed的对像属性被变形成为了class中的成员函数和成员变量。这样的改变，为此你需要引入typescript中的一个重要第三方库vue-property-decorator，没有这个第三方库，你就不能以class的形式来写vue。而两者仅仅是形态上发生了一些变化，而开发上并没有产生什么新的思路和便利。&lt;/p&gt;
+&lt;h3&gt;原因2：由于typescript是强类型语言，类型定义的工作量增加了。你再也不能无脑使用对象了。&lt;/h3&gt;
+&lt;p&gt;typescript代码&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 类型申明
+declare interface Person {
+    name: string
+    id: number
+}
+
+function show(person: Person) {
+   console.log(`姓名:${person.name} 工号:${person.id}`)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;js代码&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function show(person) {
+   console.log(`姓名:${person.name} 工号:${person.id}`)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;js代码看上去会更简洁。只要你心里面知道有person对象有name和id两个参数，你就可以进行打印输出。但ts的编译器会进行类型检查，如果你没有申明Person这个接口对象，那么程序将会在编译阶段报错。（当然对于anyscript大神，这些都不是问题。）&lt;/p&gt;
 &lt;h2&gt;ts在vue中开发的优点&lt;/h2&gt;
-&lt;p&gt;typescript的强类型引用，使得变量类型的使用变得更加严谨。并且IDE工具可以更好进行代码提示。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[一个前端学习IOS开发采坑记-swift的闭包]]></title><description><![CDATA[前言 闭包在swift开发中非常常见。但它却和js中所谓的闭包并不相同。 它并不像javascript中的闭包 js中的闭包通常是用于将函数中的私有变量能够供函数外调用的函数，通常称作为闭包。在日常开发中，可以用于创建对象实例等。 但swift中的闭包和js…]]></description><link>https://hades-li.github.io/blog/swift-closure/</link><guid isPermaLink="false">https://hades-li.github.io/blog/swift-closure/</guid><pubDate>Wed, 16 Jan 2019 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+&lt;h3&gt;优点1：同样强类型使得你的代码增加的同时，但也使得程序变得更加健壮。当你给一个变量传值时，你可以很清楚的知道传string还是number，并且IDE工具可以更好进行代码提示。&lt;/h3&gt;
+&lt;h3&gt;优点2：vuex-module-decorators&lt;/h3&gt;
+&lt;p&gt;这是一个让你的状态管理store调用起来很爽的第三方库，也是我认为在ts下开发vue感到便捷的东西。&lt;/p&gt;
+&lt;p&gt;store初始化&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;interface StoreType {
+  mm: MyModule
+}
+// Declare empty store first
+const store = new Vuex.Store&amp;lt;StoreType&amp;gt;({})
+
+@Module({ dynamic: true, store: store, name: &amp;#39;mm&amp;#39; })
+class MyModule extends VuexModule {
+  count = 0 // state
+
+  @Mutation
+  incrCount(delta) { // mutation
+    this.count += delta
+  }
+  @Action
+  add(delta) { // action
+    this.incrCount(1)
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;store的调用&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;import { Component, Vue } from &amp;#39;vue-property-decorator&amp;#39;;
+import { getModule } from &amp;#39;vuex-module-decorators&amp;#39;;
+import MyModule from &amp;#39;~/store/modules/myModule&amp;#39;
+
+@Component
+export default class extends Vue {
+    public created() {
+        const MyModule = getModule(MyStoreModule);
+        console.log(&amp;#39;count:&amp;#39; + MyModule.count) // 打印myModule的变量值
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;初始化时，module的定义和js时变化较大，说白了，也是同样将module定义成了一个class。action, mutation, state这些对象全都变成了class中的成员函数和变量。&lt;/p&gt;
+&lt;p&gt;但调用store时变的无比简单，getModule可以直接把store中的module作为对象取出来，然后你就可以直接访问module中的state和action函数等。比起原来的写法中要写大量的map是不是爽了很多。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[一个前端学习IOS开发采坑记-swift的闭包]]></title><description><![CDATA[前言 闭包在swift开发中非常常见。但它却和js中所谓的闭包并不相同。 它并不像javascript中的闭包 js中的闭包通常是用于将函数中的私有变量能够供函数外调用的函数，通常称作为闭包。在日常开发中，可以用于创建对象实例等。 但swift中的闭包和js…]]></description><link>https://hades-li.github.io/blog/swift-closure/</link><guid isPermaLink="false">https://hades-li.github.io/blog/swift-closure/</guid><pubDate>Wed, 16 Jan 2019 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
 &lt;p&gt;闭包在swift开发中非常常见。但它却和js中所谓的闭包并不相同。&lt;/p&gt;
 &lt;h2&gt;它并不像javascript中的闭包&lt;/h2&gt;
 &lt;p&gt;js中的闭包通常是用于将函数中的私有变量能够供函数外调用的函数，通常称作为闭包。在日常开发中，可以用于创建对象实例等。&lt;/p&gt;
@@ -107,7 +186,7 @@ a(callback: { a -&amp;gt; Int in
 &lt;p&gt;用前端的理解就是，这个回调函数是由一个异步请求来触发的，我们就必须加上escape。这个特性在js里当然也是有的。只不过,js根本没有把回调分为异步回调和普通回调。无论哪种回调，写法都一样。&lt;/p&gt;
 &lt;h2&gt;总结&lt;/h2&gt;
 &lt;p&gt;ios开发，闭包随处可见。首先，不要被它的各种简写搞懵。其次，把他们当成回调函数，或者匿名函数理解就可以。如果是异步回调，就加上escape修饰。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[一个前端学习IOS开发采坑记-1]]></title><description><![CDATA[前言 这是用来记录我一个前端如何学习ios开发的经历，更多的是从一个前端的角度来理解ios开发。和一些框架思想的转变。 语言的选择 大多数人都很清楚，oc是ios开发的第一大语言。即便swift已经到了第4版。在目前的项目中，
-依然是oc…]]></description><link>https://hades-li.github.io/blog/ios_1/</link><guid isPermaLink="false">https://hades-li.github.io/blog/ios_1/</guid><pubDate>Fri, 28 Dec 2018 22:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+依然是oc…]]></description><link>https://hades-li.github.io/blog/ios_1/</link><guid isPermaLink="false">https://hades-li.github.io/blog/ios_1/</guid><pubDate>Sat, 29 Dec 2018 14:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
 &lt;p&gt;这是用来记录我一个前端如何学习ios开发的经历，更多的是从一个前端的角度来理解ios开发。和一些框架思想的转变。&lt;/p&gt;
 &lt;h2&gt;语言的选择&lt;/h2&gt;
 &lt;p&gt;大多数人都很清楚，oc是ios开发的第一大语言。即便swift已经到了第4版。在目前的项目中，
