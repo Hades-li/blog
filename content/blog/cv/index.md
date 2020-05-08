@@ -1,6 +1,6 @@
 ---
 title: 简历
-date: "2018-12-08T22:12:03.284Z"
+date: "2020-03-08"
 ---
 
 # 个人信息
@@ -8,6 +8,44 @@ date: "2018-12-08T22:12:03.284Z"
 - 技术博客：http://hades-li.github.io/blog
 - 邮箱：vip_aquarius@163.com
 - QQ: 121318100
+- 技术栈： vue,nuxt,flutter,neo区块链，nginx, nodejs, webpack,
+
+---
+
+# 重点项目经验
+
+## 中台微前端项目
+
+- 对中台系统进行基于微前端架构的分割。将中台单页应用拆分成多个独立部署前端微服务，并最终整合展示
+- 技术栈：vue,element-ui,typescript,qiankun等
+- 项目开源模板：[https://github.com/Hades-li/vue-ts-admin-microApp](https://github.com/Hades-li/vue-ts-admin-microApp)
+- qiankun的vue插件库：[https://github.com/Hades-li/qiankun-vue](https://github.com/Hades-li/qiankun-vue)
+
+---
+
+## GPU租赁（区块链项目）
+
+- 基于neo区块链技术的gpu租赁业务平台前端开发。包括某指定货币的交易系统前端开发租赁系统的前端开发。
+- 技术栈：vue,element-ui，neo.js等技术实现，
+- 开源地址: [https://github.com/DeepBrainChain/DBChainWebsite/tree/dbcweb](https://github.com/DeepBrainChain/DBChainWebsite/tree/dbcweb)
+
+---
+
+## 成长加webApp（h5前端）
+
+- 项目为孩子王旗下成长加APP的web端。兼容各手机浏览器，微信端嵌入等。
+- 技术栈：scss,vue,mint-ui,vue-route,vuex,webpack,nuxt
+- 负责项目前端功能开发，环境部署，功能升级
+- 负责项目后期从spa架构重构成ssr架构,采用nuxt框架完成
+- 线上地址：[https://m.czj100.com](https://m.czj100.com)
+
+---
+
+### 密码本（flutter）
+
+- 基于谷歌最新的flutter跨平台框架打造，一款简单的用于记录账号密码的移动端app。包含ios和android。
+- flutter是基于dart语言，实现一套代码，同时开发出ios/android系统的原生应用，性能秒杀其他跨平台方案。
+- git地址：[https://github.com/Hades-li/flutter_password](https://github.com/Hades-li/flutter_password)
 
 ---
 
@@ -15,7 +53,7 @@ date: "2018-12-08T22:12:03.284Z"
 
 ## 江苏跨境电子商务有限公司（2019.05 - 至今）
 
-- 负责中台系统前端项目技术选型及开发
+- 负责中台系统前端项目技术选型，前端框架组件研发，培训等。
 
 ## 海外某公司 （2018.02 － 2019.03)
 
@@ -59,42 +97,6 @@ date: "2018-12-08T22:12:03.284Z"
 - 负责员工平台系统管理页面的开发。
 - 企业官网，招聘官网的页面开发。
 
-
-# 项目经验
-
-## 微前端项目
-
-- 对中台系统进行基于微前端架构的分割。将中台单页应用拆分成多个独立部署前端微服务，并最终整合展示
-- 项目技术：vue,element-ui,typescript,qiankun等
-- 项目开源模板：[https://github.com/Hades-li/vue-ts-admin-microApp](https://github.com/Hades-li/vue-ts-admin-microApp)
-
----
-
-## GPU租赁（区块链项目）
-
-- 基于neo区块链技术的gpu租赁业务平台前端开发。包括某指定货币的交易系统前端开发租赁系统的前端开发。
-- 项目技术采用vue,element-ui，neo.js等技术实现，
-- 开源地址: [https://github.com/DeepBrainChain/DBChainWebsite/tree/dbcweb](https://github.com/DeepBrainChain/DBChainWebsite/tree/dbcweb)
-
----
-
-## 成长加webApp
-
-- 项目为孩子王旗下成长加APP的web端。兼容各手机浏览器，微信端嵌入等。
-- 项目中使用技术包括html5+scss+js(es6)+vue框架+vue-route+vuex+webpack等
-- 负责项目前端功能开发，环境部署，功能升级
-- 负责项目后期从spa架构重构成ssr架构
-- 线上地址：[https://m.czj100.com](https://m.czj100.com)
-
----
-
-### 密码本
-
-- 基于谷歌最新的flutter跨平台框架打造，一款简单的用于记录账号密码的移动端app。包含ios和android。
-- flutter是基于dart语言，实现一套代码，同时开发出ios/android系统的原生应用，性能秒杀其他跨平台方案。
-- git地址：[https://github.com/Hades-li/flutter_password](https://github.com/Hades-li/flutter_password)
-
----
 
 ## 苏宁员工平台项目
 
