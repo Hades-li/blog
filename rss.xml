@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的小坑和大坑]]></description><link>https://hades-li.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 08 May 2020 12:45:45 GMT</lastBuildDate><item><title><![CDATA[简历]]></title><description><![CDATA[个人信息 技术博客：http://hades-li.github.io/blog 邮箱：vip_aquarius@163.com QQ: 121318100 技术栈： vue,nuxt,flutter,neo区块链，nginx, nodejs, webpack…]]></description><link>https://hades-li.github.io/blog/cv/</link><guid isPermaLink="false">https://hades-li.github.io/blog/cv/</guid><pubDate>Sun, 08 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;个人信息&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[我的博客]]></title><description><![CDATA[用于记录一些开发过程中的小坑和大坑]]></description><link>https://hades-li.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 06 May 2021 10:43:02 GMT</lastBuildDate><item><title><![CDATA[简历]]></title><description><![CDATA[个人信息 技术博客：http://hades-li.github.io/blog 邮箱：vip_aquarius@163.com QQ: 121318100 技术栈： vue,nuxt,flutter,neo区块链，nginx, nodejs, webpack…]]></description><link>https://hades-li.github.io/blog/cv/</link><guid isPermaLink="false">https://hades-li.github.io/blog/cv/</guid><pubDate>Thu, 06 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;个人信息&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;技术博客：&lt;a href=&quot;http://hades-li.github.io/blog&quot;&gt;http://hades-li.github.io/blog&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;邮箱：vip_aquarius@163.com&lt;/li&gt;
@@ -7,6 +7,13 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1&gt;重点项目经验&lt;/h1&gt;
+&lt;h2&gt;华为手机APP服务H5项目优化重构&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对原有项目的多语言多页打包方案进行重构。 重构为引导式单模块打包方案。降低维护成本。&lt;/li&gt;
+&lt;li&gt;全量打包时长由原来的30分钟左右降低到2分钟左右。包大小缩减50%以上。并可以自由选择打包模块。对于版本发布效率带了很大的提高。&lt;/li&gt;
+&lt;li&gt;所涉及技术，webpack配置优化以及版本提升。Ttag多国语言的加载改为异步懒加载。Vue的代码规范优化。构建命令改为交互式命令行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2&gt;中台微前端项目&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;对中台系统进行基于微前端架构的分割。将中台单页应用拆分成多个独立部署前端微服务，并最终整合展示&lt;/li&gt;
@@ -39,7 +46,11 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1&gt;工作经历&lt;/h1&gt;
-&lt;h2&gt;江苏跨境电子商务有限公司（2019.05 - 至今）&lt;/h2&gt;
+&lt;h2&gt;中软国际 (2020.5-2021.3)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;华为服务APP系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;江苏跨境电子商务有限公司（2019.05 - 2020.5）&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;负责中台系统前端项目技术选型，前端框架组件研发，培训等。&lt;/li&gt;
 &lt;/ul&gt;
@@ -292,7 +303,7 @@ funcA&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;$&lt;span cla
 &lt;p&gt;用前端的理解就是，这个回调函数是由一个异步请求来触发的，我们就必须加上escape。这个特性在js里当然也是有的。只不过,js根本没有把回调分为异步回调和普通回调。无论哪种回调，写法都一样。&lt;/p&gt;
 &lt;h2&gt;总结&lt;/h2&gt;
 &lt;p&gt;ios开发，闭包随处可见。首先，不要被它的各种简写搞懵。其次，把他们当成回调函数，或者匿名函数理解就可以。如果是异步回调，就加上escape修饰。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[一个前端学习IOS开发采坑记-1]]></title><description><![CDATA[前言 这是用来记录我一个前端如何学习ios开发的经历，更多的是从一个前端的角度来理解ios开发。和一些框架思想的转变。 语言的选择 大多数人都很清楚，oc是ios开发的第一大语言。即便swift已经到了第4版。在目前的项目中，
-依然是oc…]]></description><link>https://hades-li.github.io/blog/ios_1/</link><guid isPermaLink="false">https://hades-li.github.io/blog/ios_1/</guid><pubDate>Sat, 29 Dec 2018 14:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
+依然是oc…]]></description><link>https://hades-li.github.io/blog/ios_1/</link><guid isPermaLink="false">https://hades-li.github.io/blog/ios_1/</guid><pubDate>Sat, 29 Dec 2018 18:12:03 GMT</pubDate><content:encoded>&lt;h2&gt;前言&lt;/h2&gt;
 &lt;p&gt;这是用来记录我一个前端如何学习ios开发的经历，更多的是从一个前端的角度来理解ios开发。和一些框架思想的转变。&lt;/p&gt;
 &lt;h2&gt;语言的选择&lt;/h2&gt;
 &lt;p&gt;大多数人都很清楚，oc是ios开发的第一大语言。即便swift已经到了第4版。在目前的项目中，
